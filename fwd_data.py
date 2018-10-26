@@ -66,8 +66,8 @@ for i in range(start_index, len(df)):
         # calculate form
         form_total = 0
         current_gameweek = row['gameweek']
-        for j in range(0, 3):
-            if i-j >= 0 and df.iloc[i-j]['gameweek'] >= current_gameweek-3:
+        for j in range(1, 3):
+            if i-j >= 0 and df.iloc[i-j]['gameweek'] >= current_gameweek-3 and (i-j)>=current_player_starting_index:
                 form_total += df.iloc[i-j]['total']
 
         if number_of_matches == 1 or number_of_matches == 2:
